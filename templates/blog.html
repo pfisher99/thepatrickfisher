@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+  <div class="card-inner prose">
+
+    <h1>{{ section.title }}</h1>
+
+    {% if section.description %}
+      <p class="subtitle">{{ section.description }}</p>
+    {% endif %}
+
+    {% set pages = paginator.pages %}
+
+    {% if pages | length == 0 %}
+      <p class="subtitle">No posts yet. (They’re coming.)</p>
+    {% else %}
+      <ul style="list-style:none; padding:0; margin:0; display:grid; gap:18px;">
+        {% for page in pages %}
+          <li>
+            <article>
+              <h2 style="margin:0 0 6px;">
+                <a href="{{ page.permalink }}">{{ page.title }}</a>
+              </h2>
+
+              {% if page.description %}
+                <p class="tiny">{{ page.description }}</p>
+              {% endif %}
+
+              {% if page.date %}
+                <div class="tiny mono">
+                  {{ page.date | date(format="%b %d, %Y") }}
+                </div>
+              {% endif %}
+            </article>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if paginator is defined %}
+      {% if paginator.previous or paginator.next %}
+        <div style="margin-top:24px; display:flex; gap:12px;">
+          {% if paginator.previous %}
+            <a class="btn" href="{{ paginator.previous }}">← Newer</a>
+          {% endif %}
+          {% if paginator.next %}
+            <a class="btn" href="{{ paginator.next }}">Older →</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endif %}
+
+  </div>
+</section>
+{% endblock content %}

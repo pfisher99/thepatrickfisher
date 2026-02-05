@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>
+    {% if page and page.title %}
+    {{ page.title }} · Patrick Fisher
+    {% elif section and section.title %}
+    {{ section.title }} · Patrick Fisher
+    {% else %}
+    Patrick Fisher — SRE / DevOps / Systems Engineer
+    {% endif %}
+  </title>
+
+  <meta name="description" content="Patrick Fisher — SRE, DevOps, and Systems Engineer." />
+
+  <meta name="theme-color" content="#040a06" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="{{ get_url(path='css/site.css') }}">
+
+</head>
+
+<body>
+
+  <!-- === Background FX Layers === -->
+  <div class="fx" aria-hidden="true">
+    <!-- <div class="grid"></div> -->
+    <!-- <div class="packets"></div> -->
+    <!-- <div class="terminalband"></div>
+    <div class="crt"></div> -->
+    <div class="scanline"></div>
+    <!-- <div class="noise"></div> -->
+    <!-- <div class="vignette"></div> -->
+  </div>
+
+  <main class="wrap">
+
+    <header class="top">
+      <a href="{{ get_url(path='/' ) }}" class="badge" style="text-decoration:none;">
+        <span class="dot"></span>
+        <span>Online</span>
+      </a>
+
+      <a href="{{ get_url(path='/' ) }}" class="badge mono" style="text-decoration:none;">
+        thepatrickfisher.com
+      </a>
+    </header>
+
+    <section class="container">
+      {% block content %}{% endblock content %}
+    </section>
+
+  </main>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% set generalblog = get_section(path="blog/general/_index.md") %}
+
+{% if generalblog and generalblog.pages and generalblog.pages | length > 0 %}
+  {% set generalblogpages = generalblog.pages | slice(end=5) %}
+
+  <section class="card" aria-labelledby="latest">
+    <div class="card-inner prose">
+      <h2 id="latest" style="margin-top:0;">Latest</h2>
+
+      <ul style="list-style:none; padding:0; margin:0; display:grid; gap:12px;">
+        {% for p in generalblogpages %}
+          <li>
+            <a href="{{ p.permalink }}">{{ p.title }}</a>
+            {% if p.date %}
+              <span class="tiny mono"><span class="sep">•</span> {{ p.date | date(format="%b %d, %Y") }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <div style="height: 18px"></div>
+{% endif %}
+
+
+<section class="card" aria-labelledby="title">
+  <div class="card-inner">
+
+    <h1 id="title" class="caret">
+      <span class="glitch glow" data-text="Patrick Fisher">Patrick Fisher</span>.
+    </h1>
+
+    <!-- <p class="subtitle">
+      SRE / DevOps-ish systems engineer energy — reliability, automation, and “make it boring” infrastructure.
+      This site is where I’ll post notes, write-ups, and projects as they ship.
+    </p> -->
+
+    <ul class="chips" aria-label="Focus areas">
+      <li class="chip">SRE / DevOps</li>
+      <li class="chip">Azure + Linux Ops</li>
+      <li class="chip">CI/CD</li>
+      <li class="chip">Monitoring / Incident Response</li>
+      <li class="chip">Docker + Kubernetes</li>
+      <li class="chip">C# / .NET</li>
+      <li class="chip">SQL perf</li>
+      <li class="chip">Cloudflare</li>
+      <li class="chip">AI / RAG</li>
+      <li class="chip">Rust / WASM</li>
+    </ul>
+
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/pfisher99" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/pfishernetadmin/" target="_blank" rel="noopener noreferrer">
+        LinkedIn
+      </a>
+      <a class="btn" href="mailto:hello@thepatrickfisher.com">
+        Email
+      </a>
+
+
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div>© {{ now() | date(format="%Y") }} Patrick Fisher</div>
+    <div class="mono">Deployed somewhere cool</div>
+    <span class="tiny">
+      <span class="mono">zola</span><span class="sep">•</span>
+      <span class="mono">build {{ now() | date(format="%Y-%m-%d") }}</span>
+    </span>
+  </div>
+</section>
+
+{% endblock content %}
