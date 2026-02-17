@@ -3,21 +3,34 @@
 {% block content %}
 
 {% set generalblog = get_section(path="blog/general/_index.md") %}
+{% set hobbiesblog = get_section(path="blog/hobbies/_index.md") %}
+{% set generalblogpages = generalblog.pages %}
+{% set hobbiesblogpages = hobbiesblog.pages %}
+{% set merged_posts = generalblogpages | concat(with=hobbiesblogpages) | sort(attribute="date") | reverse %}
+{% set latest_posts = merged_posts | slice(end=10) %}
 
-{% if generalblog and generalblog.pages and generalblog.pages | length > 0 %}
-  {% set generalblogpages = generalblog.pages | slice(end=5) %}
-
+{% if latest_posts | length > 0 %}
   <section class="card" aria-labelledby="latest">
     <div class="card-inner prose">
-      <h2 id="latest" style="margin-top:0;">Latest</h2>
+      <h2 id="latest" style="margin-top:0;">The Absolute Latest Posts</h2>
 
       <ul style="list-style:none; padding:0; margin:0; display:grid; gap:12px;">
-        {% for p in generalblogpages %}
+        {% for p in latest_posts %}
           <li>
             <a href="{{ p.permalink }}">{{ p.title }}</a>
-            {% if p.date %}
-              <span class="tiny mono"><span class="sep">•</span> {{ p.date | date(format="%b %d, %Y") }}</span>
-            {% endif %}
+            <span class="tiny mono">
+              <span class="sep">&bull;</span>
+              {% if p.permalink is containing("/blog/general/") %}
+                General
+              {% elif p.permalink is containing("/blog/hobbies/") %}
+                Hobbies
+              {% else %}
+                Blog
+              {% endif %}
+              {% if p.date %}
+                <span class="sep">&bull;</span> {{ p.date | date(format="%b %d, %Y") }}
+              {% endif %}
+            </span>
           </li>
         {% endfor %}
       </ul>
@@ -29,6 +42,7 @@
 
 <section class="card" aria-labelledby="title">
   <div class="card-inner">
+    {% set build_date = get_env(name="BUILD_DATE", default="") %}
 
     <h1 id="title" class="caret">
       <span class="glitch glow" data-text="Patrick Fisher">Patrick Fisher</span>.
@@ -73,9 +87,13 @@
     <div class="mono">Deployed somewhere cool</div>
     <span class="tiny">
       <span class="mono">zola</span><span class="sep">•</span>
-      <span class="mono">build {{ now() | date(format="%Y-%m-%d") }}</span>
+      <span class="mono">
+        build {% if build_date != "" %}{{ build_date }}{% else %}{{ now() | date(format="%Y-%m-%d %H:%M UTC") }}{% endif %}
+      </span>
     </span>
   </div>
 </section>
 
 {% endblock content %}
+
+
