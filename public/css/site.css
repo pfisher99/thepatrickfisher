@@ -304,6 +304,18 @@ p{
   max-width: 72ch;
 }
 
+.post-description{
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border-left: 3px solid rgba(110,255,170,.58);
+  border-radius: 10px;
+  background: rgba(0,0,0,.16);
+  color: var(--muted);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
 .glow{
   color: var(--green);
   text-shadow: 0 0 18px rgba(0,255,122,.14), 0 0 42px rgba(0,255,122,.10);
