@@ -44,7 +44,7 @@ The end result: my miner sits in the bottom corner of a bookshelf on top of a 12
 
 {{ figure(src="/images/hobbies/bitaxe-gamma-mods/p3.jpg", alt=".", caption="", width=480) }}
 
-Now things were looking nice—temps kept dropping and I kept turning up the volts until it couldn't take it anymore! The 120mm fan I settled on is a variable 3V–12V fan. Currently around 5V, I can max out at 750MHz, 1.18V. Pushing 12V (and a lot of noise), I can hit 775MHz, 1.19V with 0 errors. The temperatures will rise unless my apartment is under 70F—not possible—but the chip seems to be capable of it!
+Now things were looking nice—temps kept dropping and I kept turning up the volts until it couldn't take it anymore! The 120mm fan I settled on is a variable 3V–12V fan. Currently around 5V, I can max out at 750MHz, 1.18V. Pushing 12V (and a lot of noise), I can hit 775MHz, 1.19V with 0 errors. The temperatures will rise unless my apartment is under 70F—not possible—but the chip seems to be capable of it! As a note my fan is set to 100% at 63C.
 
 {{ figure(src="/images/hobbies/bitaxe-gamma-mods/p6.jpg", alt=".", caption="This isn't stable with the fan at 5V and a warm California apartment.", width=900) }}
 
