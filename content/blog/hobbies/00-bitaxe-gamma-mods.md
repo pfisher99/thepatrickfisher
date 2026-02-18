@@ -1,7 +1,7 @@
 +++
-title = "Redneck Mods to my BitAxe Gamma 602"
+title = "Simple Mods to my BitAxe Gamma 602"
 date = 2026-02-17
-description = "Simple mods to shed some heat and overclock without liquid cooling."
+description = "Let's get cooling..."
 +++
 
 Back in January, I got a little bored and dove back into the world of crypto mining. And before you ask, yes that ship sailed well past already. It's definitely long gone into the ocean and I remain quite on-shore...
