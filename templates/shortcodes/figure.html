@@ -11,6 +11,7 @@
 {# If it's a co-located asset like "hero.png", build a file path for resize_image #}
 {% set is_absolute = src is starting_with("/") %}
 {% if is_absolute %}
+  {% set static_path = src | trim_start_matches(pat="/") %}
   {% set img_path = src %}
 {% else %}
   {% set img_path = page.colocated_path ~ src %}
@@ -19,6 +20,8 @@
 {% if width > 0 and not is_absolute %}
   {% set resized = resize_image(path=img_path, width=width, op="fit_width") %}
   {% set url = resized.url %}
+{% elif is_absolute %}
+  {% set url = get_url(path=static_path, cachebust=true) %}
 {% else %}
   {% set url = img_path %}
 {% endif %}
