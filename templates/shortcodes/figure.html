@@ -21,7 +21,7 @@
   {% set resized = resize_image(path=img_path, width=width, op="fit_width") %}
   {% set url = resized.url %}
 {% elif is_absolute %}
-  {% set url = get_url(path=static_path, cachebust=true) %}
+  {% set url = get_url(path=static_path) %}
 {% else %}
   {% set url = img_path %}
 {% endif %}
