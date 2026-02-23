@@ -405,6 +405,64 @@ p{
   border-color: rgba(0,255,122,.35);
 }
 
+.not-found-kicker{
+  margin-bottom: 10px;
+  letter-spacing: .08em;
+}
+
+.nf-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.nf-console{
+  margin: 0;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(110,255,170,.18);
+  background: rgba(0,0,0,.26);
+  box-shadow: inset 0 0 0 1px rgba(0,255,122,.06);
+}
+
+.nf-console .mono{
+  display: block;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.nf-console-result{
+  color: var(--green);
+  text-shadow: 0 0 18px rgba(0,255,122,.18);
+}
+
+.nf-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nf-links{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.nf-links li{
+  display: grid;
+  gap: 4px;
+}
+
+@media (max-width:760px){
+  .nf-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
 .icon{ width:16px; height:16px; display:inline-block; }
 
 .tiny{
