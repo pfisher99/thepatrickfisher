@@ -48,6 +48,6 @@ fits pretty well on my GPU with a 256k context window. I'd say that's decent,
 with a nice long thinking output we'll see how it does.
 
 Stay tuned, we'll go over the vLLM startup and configuration then dig into the
-code. For now you can follow my vibe
+code. For now you can follow my vibe coding on [git](https://github.com/pfisher99/vibe-code-scanner).
 
 [Reference image: vLLM API output screenshot](/images/computers/vibe-coding-part-1/vllm-api-output.png)
