@@ -21,7 +21,7 @@ all 3 of our 4090s into 1 box but that is a story for another time...
 Anyways, last year I decided to upgrade my old laptop and ended up with a RTX
 5080 Laptop (180W) and 16GB of that sweet sweet GDDR7. Looking back I wish I
 had paid the premium for the 5090 but oh well, such is life friends.
-[Laptop Here](https://www.msi.com/Laptop/Titan-18-HX-AI-A2XWX)
+[Laptop](https://www.msi.com/Laptop/Raider-18-HX-AI-A2XWX)
 
 ## The Idea
 
