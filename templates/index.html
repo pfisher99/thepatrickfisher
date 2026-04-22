@@ -8,6 +8,10 @@
 {% set generalblogpages = generalblog.pages %}
 {% set hobbiesblogpages = hobbiesblog.pages %}
 {% set computersblogpages = computersblog.pages %}
+{% for subsection_path in computersblog.subsections %}
+  {% set subsection = get_section(path=subsection_path) %}
+  {% set_global computersblogpages = computersblogpages | concat(with=subsection.pages) %}
+{% endfor %}
 {% set merged_posts = generalblogpages | concat(with=hobbiesblogpages) | concat(with=computersblogpages) | sort(attribute="date") | reverse %}
 {% set latest_posts = merged_posts | slice(end=10) %}
 
@@ -64,7 +68,7 @@
       <li>
         <a href="{{ computersblog.permalink }}">{{ computersblog.title }}</a>
         <div class="tiny" style="margin-top:4px;">{{ computersblog.description }}</div>
-        <div class="tiny mono" style="margin-top:6px;">{{ computersblog.pages | length }} post{% if computersblog.pages | length != 1 %}s{% endif %}</div>
+        <div class="tiny mono" style="margin-top:6px;">{{ computersblogpages | length }} post{% if computersblogpages | length != 1 %}s{% endif %}</div>
       </li>
     </ul>
   </div>

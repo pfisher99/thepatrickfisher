@@ -316,6 +316,27 @@ p{
   line-height: 1.5;
 }
 
+.post :is(h1, h2, h3, h4)::after{
+  content: "";
+  display: block;
+  width: clamp(46px, 8vw, 76px);
+  height: 2px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(70,255,154,.9), rgba(0,255,122,.18));
+  box-shadow: 0 0 18px rgba(0,255,122,.16);
+}
+
+.post h1::after{
+  width: clamp(58px, 10vw, 96px);
+  height: 3px;
+  margin-top: 14px;
+}
+
+.post :is(h3, h4)::after{
+  width: 44px;
+}
+
 .glow{
   color: var(--green);
   text-shadow: 0 0 18px rgba(0,255,122,.14), 0 0 42px rgba(0,255,122,.10);

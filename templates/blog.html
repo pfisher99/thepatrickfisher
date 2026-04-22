@@ -11,41 +11,73 @@
     {% endif %}
 
     {% set pages = paginator.pages %}
+    {% set has_subsections = section.subsections | length > 0 %}
 
-    {% if pages | length == 0 %}
-      <p class="subtitle">No posts yet. (They’re coming.)</p>
+    {% if not has_subsections and pages | length == 0 %}
+      <p class="subtitle">No posts yet. (They're coming.)</p>
     {% else %}
-      <ul style="list-style:none; padding:0; margin:0; display:grid; gap:18px;">
-        {% for page in pages %}
-          <li>
-            <article>
-              <h2 style="margin:0 0 6px;">
-                <a href="{{ page.permalink }}">{{ page.title }}</a>
-              </h2>
+      {% if has_subsections %}
+        <p class="tiny mono" style="margin:0 0 12px;">Collections</p>
 
-              {% if page.description %}
-                <p class="tiny">{{ page.description }}</p>
-              {% endif %}
+        <ul style="list-style:none; padding:0; margin:0 0 24px; display:grid; gap:18px;">
+          {% for subsection_path in section.subsections %}
+            {% set subsection = get_section(path=subsection_path) %}
+            <li>
+              <article>
+                <h2 style="margin:0 0 6px;">
+                  <a href="{{ subsection.permalink }}">{{ subsection.title }}</a>
+                </h2>
 
-              {% if page.date %}
+                {% if subsection.description %}
+                  <p class="tiny">{{ subsection.description }}</p>
+                {% endif %}
+
                 <div class="tiny mono">
-                  {{ page.date | date(format="%b %d, %Y") }}
+                  {{ subsection.pages | length }} post{% if subsection.pages | length != 1 %}s{% endif %}
                 </div>
-              {% endif %}
-            </article>
-          </li>
-        {% endfor %}
-      </ul>
+              </article>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if pages | length > 0 %}
+        {% if has_subsections %}
+          <p class="tiny mono" style="margin:0 0 12px;">Posts</p>
+        {% endif %}
+
+        <ul style="list-style:none; padding:0; margin:0; display:grid; gap:18px;">
+          {% for page in pages %}
+            <li>
+              <article>
+                <h2 style="margin:0 0 6px;">
+                  <a href="{{ page.permalink }}">{{ page.title }}</a>
+                </h2>
+
+                {% if page.description %}
+                  <p class="tiny">{{ page.description }}</p>
+                {% endif %}
+
+                {% if page.date %}
+                  <div class="tiny mono">
+                    {{ page.date | date(format="%b %d, %Y") }}
+                  </div>
+                {% endif %}
+              </article>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     {% endif %}
 
     {% if paginator is defined %}
       {% if paginator.previous or paginator.next %}
         <div style="margin-top:24px; display:flex; gap:12px;">
           {% if paginator.previous %}
-            <a class="btn" href="{{ paginator.previous }}">← Newer</a>
+            <a class="btn" href="{{ paginator.previous }}">&larr; Newer</a>
           {% endif %}
           {% if paginator.next %}
-            <a class="btn" href="{{ paginator.next }}">Older →</a>
+            <a class="btn" href="{{ paginator.next }}">Older &rarr;</a>
           {% endif %}
         </div>
       {% endif %}
