@@ -4,9 +4,11 @@
 
 {% set generalblog = get_section(path="blog/general/_index.md") %}
 {% set hobbiesblog = get_section(path="blog/hobbies/_index.md") %}
+{% set computersblog = get_section(path="blog/computers/_index.md") %}
 {% set generalblogpages = generalblog.pages %}
 {% set hobbiesblogpages = hobbiesblog.pages %}
-{% set merged_posts = generalblogpages | concat(with=hobbiesblogpages) | sort(attribute="date") | reverse %}
+{% set computersblogpages = computersblog.pages %}
+{% set merged_posts = generalblogpages | concat(with=hobbiesblogpages) | concat(with=computersblogpages) | sort(attribute="date") | reverse %}
 {% set latest_posts = merged_posts | slice(end=10) %}
 
 {% if latest_posts | length > 0 %}
@@ -24,6 +26,8 @@
                 General
               {% elif p.permalink is containing("/blog/hobbies/") %}
                 Hobbies
+              {% elif p.permalink is containing("/blog/computers/") %}
+                Computers
               {% else %}
                 Blog
               {% endif %}
@@ -39,6 +43,34 @@
 
   <div style="height: 18px"></div>
 {% endif %}
+
+<section class="card" aria-labelledby="sections">
+  <div class="card-inner prose">
+    <h2 id="sections" style="margin-top:0;">Post Sections</h2>
+
+    <ul style="list-style:none; padding:0; margin:0; display:grid; gap:16px;">
+      <li>
+        <a href="{{ generalblog.permalink }}">{{ generalblog.title }}</a>
+        <div class="tiny" style="margin-top:4px;">{{ generalblog.description }}</div>
+        <div class="tiny mono" style="margin-top:6px;">{{ generalblog.pages | length }} post{% if generalblog.pages | length != 1 %}s{% endif %}</div>
+      </li>
+
+      <li>
+        <a href="{{ hobbiesblog.permalink }}">{{ hobbiesblog.title }}</a>
+        <div class="tiny" style="margin-top:4px;">{{ hobbiesblog.description }}</div>
+        <div class="tiny mono" style="margin-top:6px;">{{ hobbiesblog.pages | length }} post{% if hobbiesblog.pages | length != 1 %}s{% endif %}</div>
+      </li>
+
+      <li>
+        <a href="{{ computersblog.permalink }}">{{ computersblog.title }}</a>
+        <div class="tiny" style="margin-top:4px;">{{ computersblog.description }}</div>
+        <div class="tiny mono" style="margin-top:6px;">{{ computersblog.pages | length }} post{% if computersblog.pages | length != 1 %}s{% endif %}</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div style="height: 18px"></div>
 
 <section class="card" aria-labelledby="title">
   <div class="card-inner">
@@ -95,5 +127,3 @@
 </section>
 
 {% endblock content %}
-
-
