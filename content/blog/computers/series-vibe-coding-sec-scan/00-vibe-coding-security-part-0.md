@@ -35,7 +35,7 @@ overlaps, writes markdown reports plus JSON artifacts.
 ### Thoughts on Vibe Coding
 
 I haven't posted about it yet, but I am not a huge fan of vibe coding...
-I'm giving it a shot though to see where we end up. So far it just produces far more
+I'm giving it a shot though to see where we end up. It just produces far more
 than I check and is far from perfect. I wouldn't say this project is a new
 operating system or anything. I think in reality it's a pretty simple idea with
 pretty simple code. I just write slower than it can spit out code, and I'm sure
