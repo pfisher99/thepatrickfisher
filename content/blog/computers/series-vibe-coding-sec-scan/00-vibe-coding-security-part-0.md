@@ -43,7 +43,7 @@ someone has written code somewhere like this before...
 
 ### Models
 
-Currently I'm experimenting with models, Qwen3.5 9B using bitsandbytes in vLLM
+Currently I'm experimenting with models, [Qwen3.5 9B](https://huggingface.co/Qwen/Qwen3.5-9B) using bitsandbytes in vLLM
 fits pretty well on my GPU with a 256k context window. I'd say that's decent,
 with a nice long thinking output we'll see how it does.
 
