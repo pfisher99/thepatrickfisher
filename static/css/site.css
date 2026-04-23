@@ -586,7 +586,7 @@ p{
 .code-block__summary{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 14px;
   padding: 12px 14px;
   background:
@@ -603,8 +603,22 @@ p{
   min-width: 0;
 }
 
+.code-block__meta{
+  flex: 1 1 18rem;
+  flex-wrap: wrap;
+}
+
+.code-block__actions{
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
 .code-block__title{
   display: inline-block;
+  flex: 1 1 12rem;
+  min-width: 0;
   max-width: min(42ch, 100%);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -629,6 +643,7 @@ p{
   font-size: 12px;
   letter-spacing: .04em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .code-block__download{
@@ -651,6 +666,7 @@ p{
 
 .code-block__toggle{
   color: var(--dim);
+  margin-left: auto;
 }
 
 .code-block pre{
@@ -662,6 +678,50 @@ p{
 
 .code-block:not([open]) pre{
   display: none;
+}
+
+@media (max-width:640px){
+  .code-block__summary{
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .code-block__meta{
+    flex-basis: 100%;
+  }
+
+  .code-block__actions{
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .code-block__title{
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .prose pre,
+  .code-block pre{
+    max-width: 100%;
+    padding: 14px 12px;
+    overflow-x: hidden;
+  }
+
+  .prose pre code,
+  .code-block pre code{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .prose pre code .giallo-l,
+  .code-block pre code .giallo-l{
+    display: block;
+    white-space: inherit;
+  }
 }
 
 .prose .post-figure{
