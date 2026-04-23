@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block background_fx %}
+  <div class="scanline"></div>
+{% endblock background_fx %}
+
 {% block content %}
 
 {% set generalblog = get_section(path="blog/general/_index.md") %}
@@ -84,11 +88,6 @@
       <span class="glitch glow" data-text="Patrick Fisher">Patrick Fisher</span>.
     </h1>
 
-    <!-- <p class="subtitle">
-      SRE / DevOps-ish systems engineer energy — reliability, automation, and “make it boring” infrastructure.
-      This site is where I’ll post notes, write-ups, and projects as they ship.
-    </p> -->
-
     <ul class="chips" aria-label="Focus areas">
       <li class="chip">SRE / DevOps</li>
       <li class="chip">Azure + Linux Ops</li>
@@ -120,7 +119,7 @@
 
   <div class="footer">
     <div>© {{ now() | date(format="%Y") }} Patrick Fisher</div>
-    <div class="mono">Deployed somewhere cool</div>
+    <div class="mono">Hosted on Cloudflare Pages</div>
     <span class="tiny">
       <span class="mono">zola</span><span class="sep">•</span>
       <span class="mono">

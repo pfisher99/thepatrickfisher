@@ -21,6 +21,7 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="{{ get_url(path='css/site.css', cachebust=true) }}">
+  <script defer src="{{ get_url(path='js/site.js', cachebust=true) }}"></script>
 
 </head>
 
@@ -32,7 +33,7 @@
     <!-- <div class="packets"></div> -->
     <!-- <div class="terminalband"></div>
     <div class="crt"></div> -->
-    <div class="scanline"></div>
+    {% block background_fx %}{% endblock background_fx %}
     <!-- <div class="noise"></div> -->
     <!-- <div class="vignette"></div> -->
   </div>
