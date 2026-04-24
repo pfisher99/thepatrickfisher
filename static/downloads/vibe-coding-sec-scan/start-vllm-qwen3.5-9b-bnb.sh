@@ -59,7 +59,7 @@ ARGS=(
   --enable-prefix-caching
   --enable-auto-tool-choice
   --tool-call-parser qwen3_coder
-  --chat-template /home/sqeak/vllm/jinja-patch.jinja
+  --chat-template ~/vllm/jinja-patch.jinja
 )
 
 # Optional: if FP8 KV quality seems odd, try uncommenting this.
