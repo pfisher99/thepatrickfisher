@@ -5,7 +5,7 @@ description = "Let's just let it loose in Kali, eh?"
 +++
 
 ## Background
-This is for research and fun...
+This is for research and fun... 😁
 
 Lately with the Claude Mythos talk I decided to test out smaller models myself locally on my laptop. I began a series about vibe coding a code scanning agent that runs locally and scans code for whatever you may like to build reports. Nothing that fancy... however! In the midst of that I had the idea to just let Qwen work inside of Kali Linux and see what happens. I figured I'd give it an easy target like Windows XP SP1 and see if it can open a shell. 
 
@@ -15,7 +15,7 @@ I've got vLLM running in [WSL](https://learn.microsoft.com/en-us/windows/wsl/ins
 
 I went ahead and grabbed a VirtualBox copy of Kali Linux and quickly vibe coded together an agent, and then gave it full command line access... while also setting up a VM of Windows XP SP2, which takes quite a lot longer in a VM than I remember. Maybe VirtualBox is a bad choice? Probably... Let's just change to VMWare Workstation...
 
-Poof, that's done and XP is running much better. I also pulled down the Kali VMWare Image. Don't bother with VirtualBox, just submit to broadcom and make an account. :(
+Poof, that's done and XP is running much better. I also pulled down the Kali VMWare Image. Don't bother with VirtualBox, just submit to broadcom and make an account. 😒
 
 ## The Agent
 
