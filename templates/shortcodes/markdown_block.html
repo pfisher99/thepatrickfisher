@@ -1,0 +1,19 @@
+{# Usage:
+   {% markdown_block(title="Prompt", collapsed=true) %}
+   Markdown **works** in here.
+   {% end %}
+#}
+
+{% set title = title | default(value="Note") %}
+{% set collapsed = collapsed | default(value=false) %}
+
+<details class="code-block markdown-block"{% if not collapsed %} open{% endif %}>
+  <summary class="code-block__summary">
+    <span class="code-block__meta">
+      <span class="code-block__title mono">{{ title }}</span>
+    </span>
+  </summary>
+  <div class="markdown-block__body">
+    {{ body | trim | markdown | safe }}
+  </div>
+</details>

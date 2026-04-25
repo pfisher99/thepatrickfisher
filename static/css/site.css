@@ -205,7 +205,7 @@ a{ color: inherit; }
 }
 
 .container{
-  width: min(980px, 100%);
+  width: min(1180px, 100%);
   margin: 0 auto;
 }
 
@@ -284,13 +284,45 @@ a{ color: inherit; }
   background: rgba(0,0,0,.34);
   backdrop-filter: blur(10px);
 }
-@media (max-width:520px){ .card-inner{ padding: 22px; } }
+@media (max-width:640px){
+  .wrap{
+    padding: 16px;
+  }
+}
+
+@media (max-width:520px){
+  .card-inner{
+    padding: 22px;
+  }
+}
 
 /* Large scrolling glass panels can show a horizontal seam in some browsers. */
 .post.card-inner{
   background: rgba(0,0,0,.42);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+  padding: 42px;
+  font-size: 17px;
+}
+
+.post p{
+  margin-bottom: 16px;
+  line-height: 1.72;
+}
+
+.post :is(ul, ol){
+  line-height: 1.68;
+}
+
+@media (max-width:520px){
+  .post.card-inner{
+    padding: 22px 18px;
+    font-size: 16px;
+  }
+
+  .post p{
+    line-height: 1.68;
+  }
 }
 
 h1,h2,h3{
@@ -678,6 +710,49 @@ p{
 
 .code-block:not([open]) pre{
   display: none;
+}
+
+.markdown-block > .code-block__summary::after{
+  content: "Collapse";
+  margin-left: auto;
+  color: var(--dim);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.markdown-block:not([open]) > .code-block__summary::after{
+  content: "Expand";
+}
+
+.markdown-block__body{
+  padding: 16px 18px 18px;
+  overflow-wrap: break-word;
+}
+
+.markdown-block__body p,
+.markdown-block__body li{
+  white-space: pre-wrap;
+}
+
+.markdown-block__body > :first-child{
+  margin-top: 0;
+}
+
+.markdown-block__body > :last-child{
+  margin-bottom: 0;
+}
+
+.markdown-block__body pre{
+  overflow-x: hidden;
+  white-space: pre-wrap;
+}
+
+.markdown-block__body pre code{
+  white-space: inherit;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width:640px){
