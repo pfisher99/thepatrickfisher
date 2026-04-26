@@ -11,7 +11,7 @@ Lately with the Claude Mythos talk I decided to test out smaller models myself l
 
 ## The Setup
 
-I've got vLLM running in [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) on my laptop which also sports an RTX 5080(L?) with 16GB of VRAM. This lets me happily run [Qwen3.5 9B NVFP4](https://huggingface.co/AxionML/Qwen3.5-9B-NVFP4) with a full 256K context.
+I've got [vLLM](https://vllm.ai/) running in [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) on my laptop which also sports an RTX 5080(L?) with 16GB of VRAM. This lets me happily run [Qwen3.5 9B NVFP4](https://huggingface.co/AxionML/Qwen3.5-9B-NVFP4) with a full 256K context.
 
 I went ahead and grabbed a VirtualBox copy of Kali Linux and quickly vibe coded together an agent, and then gave it full command line access... while also setting up a VM of Windows XP SP2, which takes quite a lot longer in a VM than I remember. Maybe VirtualBox is a bad choice? Probably... Let's just change to VMWare Workstation...
 
@@ -19,7 +19,7 @@ Poof, that's done and XP is running much better. I also pulled down the Kali VMW
 
 ## The Agent
 
-Since I'm testing out vibe coding here myself I've gone ahead and vibe coded our agent. [Source](https://github.com/pfisher99/qwen-agent-009) Everything ran later will be from this codebase.
+Since I'm testing out vibe coding here myself I've gone ahead and vibe coded our agent. [Source](https://github.com/pfisher99/qwen-agent-009) ... Everything ran later will be from this codebase.
 
 It has shell access, web search, and access to the Metasploit. ChatGPT was a bit hesitant to wire up the web search but after I said I understood that it was definitely a risk and we can't have this thing access the internet it happily put it behind a variable called:
 
