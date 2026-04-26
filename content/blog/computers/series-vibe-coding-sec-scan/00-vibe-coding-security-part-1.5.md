@@ -13,7 +13,7 @@ Lately with the Claude Mythos talk I decided to test out smaller models myself l
 
 I've got [vLLM](https://vllm.ai/) running in [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) on my laptop which also sports an RTX 5080(L?) with 16GB of VRAM. This lets me happily run [Qwen3.5 9B NVFP4](https://huggingface.co/AxionML/Qwen3.5-9B-NVFP4) with a full 256K context.
 
-I went ahead and grabbed a VirtualBox copy of Kali Linux and quickly vibe coded together an agent, and then gave it full command line access... while also setting up a VM of Windows XP SP2, which takes quite a lot longer in a VM than I remember. Maybe VirtualBox is a bad choice? Probably... Let's just change to VMWare Workstation...
+I went ahead and grabbed a VirtualBox copy of Kali Linux and quickly vibe coded together an agent, and then gave it full command line access... while also setting up a VM of Windows XP SP1, which takes quite a lot longer in a VM than I remember. Maybe VirtualBox is a bad choice? Probably... Let's just change to VMWare Workstation...
 
 Poof, that's done and XP is running much better. I also pulled down the Kali VMWare Image. Don't bother with VirtualBox, just submit to broadcom and make an account. 😒
 
