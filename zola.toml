@@ -1,4 +1,3 @@
-# The URL the site will be built for
 base_url = "https://thepatrickfisher.com"
 title = "Patrick Fisher"
 description = "Patrick Fisher — SRE, DevOps, Systems Engineer, Mad Scientist."
@@ -18,4 +17,3 @@ build_search_index = true
 theme = "catppuccin-mocha"
 
 [extra]
-# Put all your custom variables here
