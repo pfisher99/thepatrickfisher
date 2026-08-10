@@ -24,7 +24,7 @@ In my first post I mentioned I was using bitsandbytes with the plain [Qwen3.5-9B
 
 Oh and since we're vibe coding, here is some more sloppy slop. It's quite the long script but it works? 
 
-{% code_block(title="start-vllm-qwen3.5-9b-bnb.sh", language="bash", collapsed=true, download="/downloads/vibe-coding-sec-scan/start-vllm-qwen3.5-9b-bnb.sh") %}
+{% <code_block title="start-vllm-qwen3.5-9b-bnb.sh" language="bash" collapsed={true} download="/downloads/vibe-coding-sec-scan/start-vllm-qwen3.5-9b-bnb.sh"> %}
 ```bash
 #!/usr/bin/env bash
 set -euo pipefail
@@ -107,7 +107,7 @@ echo "Context: $MAX_MODEL_LEN | GPU util: $GPU_MEM_UTIL | CPU offload: $CPU_OFFL
 
 exec vllm serve "$MODEL_DIR" "${ARGS[@]}"
 ```
-{% end %}
+{% </code_block> %}
 
 ### Quick Notes
 I added an extra jinja script in there you might have noticed, actually you didn't because you didn't read the entire script but it's [here](https://huggingface.co/froggeric/Qwen3.5-35B-A3B-Uncensored-FernflowerAI-MLX-8bit/blob/main/chat_template.jinja) and some notes on it [here](https://www.reddit.com/r/LocalLLaMA/comments/1sis1vn/the_definitive_qwen_35_jinja_template/)
@@ -126,7 +126,7 @@ You can still use the same script as above, just #comment out the --quantization
 
 The biggest difference I have seen with the NVFP4 model is that my concurrency throughput is a lot higher. With bitsandbytes I was hitting ~82t/s and extra requests seemed to eat into that budget. Now with NVFP4 I do much better with concurrent requests. Remember my scanner is setup for 64K context x 4... 305.2t/s...
 
-{{ figure(src="/images/computers/vibe-coding-sec-part-1/terminal-output00.png", alt="Pretty, pretty, pretty, pretty, good...", caption="", width=1280) }}
+{{ <figure page src="/images/computers/vibe-coding-sec-part-1/terminal-output00.png" alt="Pretty, pretty, pretty, pretty, good..." caption="" width={1280} /> }}
 
 ## Next Time!
 

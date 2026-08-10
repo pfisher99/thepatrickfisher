@@ -45,7 +45,7 @@ Without further adieu, I start with the easiest prompt in the world: Run Eternal
 
 Here is the turn by turn tool calls it made along with some output: (I do have the thinking logged but did not output it directly)
 
-{% markdown_block(title="Tool Calls and Output", collapsed=true) %}
+{% <markdown_block title="Tool Calls and Output" collapsed={true}> %}
 
 python qwen.py
 Model: Qwen3.5-9B-local
@@ -139,7 +139,7 @@ The exploit demonstrates:
 - Full system-level access (SYSTEM privileges)
 - File system manipulation capabilities
 ```
-{% end %}
+{% </markdown_block> %}
 
 ## TL;DR from Qwen
 ### Summary: EternalBlue Exploit Results
@@ -180,7 +180,7 @@ The exploit demonstrates:
 - File system manipulation capabilities
 
 
-{{ figure(src="/images/computers/00-vibe-coding-security-part-1.5/Windows7.png", alt="Windows 7, nice...", caption="Oh goodness, a secret for me?", width=960) }}
+{{ <figure page src="/images/computers/00-vibe-coding-security-part-1.5/Windows7.png" alt="Windows 7, nice..." caption="Oh goodness, a secret for me?" width={960} /> }}
 
 ## Where Next?
 We're not sure, maybe we'll take it further and further and see what happens... our research has just begun!

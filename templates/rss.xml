@@ -4,7 +4,7 @@
   {% for subsection_path in section.subsections %}
     {% set subsection = get_section(path=subsection_path) %}
     {% if not subsection.transparent %}
-      {% set_global feed_pages = feed_pages | concat(with=subsection.pages) %}
+      {% set_global feed_pages = [...feed_pages, ...subsection.pages] %}
     {% endif %}
   {% endfor %}
 {% endif %}

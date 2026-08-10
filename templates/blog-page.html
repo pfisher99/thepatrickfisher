@@ -7,9 +7,14 @@
     <nav class="breadcrumbs mono" aria-label="Breadcrumb">
       <ol>
         <li><a href="{{ get_url(path='/') }}">Home</a></li>
-        {% for ancestor_path in page.ancestors %}
-          {% set ancestor = get_section(path=ancestor_path, metadata_only=true) %}
-          {% if ancestor.title and ancestor.path != "/" %}
+        {% set relative_parts = page.relative_path | split(pat="/") %}
+        {% set section_parts = relative_parts[:-1] %}
+        {% set_global section_path_parts = [] %}
+        {% for section_part in section_parts %}
+          {% set_global section_path_parts = [...section_path_parts, section_part] %}
+          {% set ancestor_path = section_path_parts | join(sep="/") ~ "/_index.md" %}
+          {% set ancestor = get_section(path=ancestor_path, metadata_only=true, allow_missing=true) %}
+          {% if ancestor and ancestor.title and ancestor.path != "/" %}
             <li><a href="{{ ancestor.permalink }}">{{ ancestor.title }}</a></li>
           {% endif %}
         {% endfor %}

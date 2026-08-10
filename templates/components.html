@@ -1,0 +1,68 @@
+{#
+  Reusable Tera 2 components for article content.
+
+  Components are registered globally, so content can call them without an
+  import. Non-string arguments use expression braces in calls, for example:
+
+    {{ <figure page src="/images/example.png" alt="Example" width={640} /> }}
+#}
+
+{% component code_block(title: string = "Code", language: string = "text", collapsed: bool = false, download: string = "", download_label: string = "Download") %}
+{% if download != "" and download is starting_with(pat="/") %}
+  {% set download_url = get_url(path=download | trim_start(pat="/")) %}
+{% else %}
+  {% set download_url = download %}
+{% endif %}
+
+<div
+  class="code-block-source"
+  data-code-title="{{ title }}"
+  data-code-lang="{{ language }}"
+  data-code-collapsed="{% if collapsed %}true{% else %}false{% endif %}"
+  data-code-download-url="{{ download_url }}"
+  data-code-download-label="{{ download_label }}"
+>
+  {{ body | trim | markdown | safe }}
+</div>
+{% endcomponent code_block %}
+
+{% component markdown_block(title: string = "Note", collapsed: bool = false) %}
+<details class="code-block markdown-block"{% if not collapsed %} open{% endif %}>
+  <summary class="code-block__summary">
+    <span class="code-block__meta">
+      <span class="code-block__title mono">{{ title }}</span>
+    </span>
+  </summary>
+  <div class="markdown-block__body">
+    {{ body | trim | markdown | safe }}
+  </div>
+</details>
+{% endcomponent markdown_block %}
+
+{% component figure(page: map, src: string, alt: string = "", caption: string = "", width: integer = 0) %}
+{% set is_absolute = src is starting_with(pat="/") %}
+{% if is_absolute %}
+  {% set static_path = src | trim_start(pat="/") %}
+  {% set img_path = src %}
+{% else %}
+  {% set img_path = page.colocated_path ~ src %}
+{% endif %}
+
+{% if width > 0 and not is_absolute %}
+  {% set resized = resize_image(path=img_path, width=width, op="fit_width") %}
+  {% set url = resized.url %}
+{% elif is_absolute %}
+  {% set url = get_url(path=static_path) %}
+{% else %}
+  {% set url = img_path %}
+{% endif %}
+
+<figure class="post-figure{% if width > 0 %} is-constrained{% endif %}"{% if width > 0 %} style="--figure-max-width: {{ width }}px;"{% endif %}>
+  <a class="post-figure-link" href="{{ url | safe }}" aria-label="Open image at full size">
+    <img class="post-figure-image" src="{{ url | safe }}" alt="{{ alt }}" loading="lazy" decoding="async">
+  </a>
+  {% if caption != "" %}
+    <figcaption class="post-figure-caption">{{ caption }}</figcaption>
+  {% endif %}
+</figure>
+{% endcomponent figure %}

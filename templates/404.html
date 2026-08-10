@@ -3,8 +3,8 @@
 {% block content %}
 {% set generalblog = get_section(path="blog/general/_index.md") %}
 {% set hobbiesblog = get_section(path="blog/hobbies/_index.md") %}
-{% set merged_posts = generalblog.pages | concat(with=hobbiesblog.pages) | sort(attribute="date") | reverse %}
-{% set latest_posts = merged_posts | slice(end=4) %}
+{% set merged_posts = [...generalblog.pages, ...hobbiesblog.pages] | sort(attribute="date") | reverse %}
+{% set latest_posts = merged_posts[:4] %}
 
 <section class="card" aria-labelledby="not-found-title">
   <div class="card-inner prose not-found">
@@ -45,9 +45,9 @@
             <a href="{{ p.permalink }}">{{ p.title }}</a>
             <span class="tiny mono">
               <span class="sep">&bull;</span>
-              {% if p.permalink is containing("/blog/general/") %}
+              {% if "/blog/general/" in p.permalink %}
                 General
-              {% elif p.permalink is containing("/blog/hobbies/") %}
+              {% elif "/blog/hobbies/" in p.permalink %}
                 Hobbies
               {% else %}
                 Blog

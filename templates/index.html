@@ -15,11 +15,11 @@
 {% for subsection_path in computersblog.subsections %}
   {% set subsection = get_section(path=subsection_path) %}
   {% if not subsection.transparent %}
-    {% set_global computersblogpages = computersblogpages | concat(with=subsection.pages) %}
+    {% set_global computersblogpages = [...computersblogpages, ...subsection.pages] %}
   {% endif %}
 {% endfor %}
-{% set merged_posts = generalblogpages | concat(with=hobbiesblogpages) | concat(with=computersblogpages) | sort(attribute="date") | reverse %}
-{% set latest_posts = merged_posts | slice(end=10) %}
+{% set merged_posts = [...generalblogpages, ...hobbiesblogpages, ...computersblogpages] | sort(attribute="date") | reverse %}
+{% set latest_posts = merged_posts[:10] %}
 
 {% if latest_posts | length > 0 %}
   <section class="card" aria-labelledby="latest">
@@ -32,11 +32,11 @@
             <a href="{{ p.permalink }}">{{ p.title }}</a>
             <span class="tiny mono">
               <span class="sep">&bull;</span>
-              {% if p.permalink is containing("/blog/general/") %}
+              {% if "/blog/general/" in p.permalink %}
                 General
-              {% elif p.permalink is containing("/blog/hobbies/") %}
+              {% elif "/blog/hobbies/" in p.permalink %}
                 Hobbies
-              {% elif p.permalink is containing("/blog/computers/") %}
+              {% elif "/blog/computers/" in p.permalink %}
                 Computers
               {% else %}
                 Blog
