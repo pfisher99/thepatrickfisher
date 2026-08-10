@@ -5,6 +5,7 @@ sort_by = "date"
 paginate_by = 10
 template = "blog.html"
 page_template = "blog-page.html"
+generate_feeds = true
 +++
 
 Mostly software, hardware, and the questionable decisions in between.

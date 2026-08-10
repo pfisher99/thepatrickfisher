@@ -1,5 +1,10 @@
 # The URL the site will be built for
 base_url = "https://thepatrickfisher.com"
+title = "Patrick Fisher"
+description = "Patrick Fisher — SRE, DevOps, Systems Engineer, Mad Scientist."
+author = "hello@thepatrickfisher.com (Patrick Fisher)"
+generate_feeds = true
+feed_filenames = ["rss.xml"]
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false

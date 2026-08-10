@@ -14,7 +14,9 @@
 {% set computersblogpages = computersblog.pages %}
 {% for subsection_path in computersblog.subsections %}
   {% set subsection = get_section(path=subsection_path) %}
-  {% set_global computersblogpages = computersblogpages | concat(with=subsection.pages) %}
+  {% if not subsection.transparent %}
+    {% set_global computersblogpages = computersblogpages | concat(with=subsection.pages) %}
+  {% endif %}
 {% endfor %}
 {% set merged_posts = generalblogpages | concat(with=hobbiesblogpages) | concat(with=computersblogpages) | sort(attribute="date") | reverse %}
 {% set latest_posts = merged_posts | slice(end=10) %}
@@ -110,6 +112,9 @@
       </a>
       <a class="btn" href="mailto:hello@thepatrickfisher.com">
         Email
+      </a>
+      <a class="btn" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
+        RSS
       </a>
 
 
