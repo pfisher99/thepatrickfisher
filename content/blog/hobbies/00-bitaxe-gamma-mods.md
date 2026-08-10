@@ -22,7 +22,7 @@ After some further discussion with a clanker named ChatGPT, some MX-6 paste was 
 
 Once in-hand, I set to pry the dastardly BitAxe board from its enclosure designed for maximum brand recognition. Really, it's just a 3D-printed case for the board. The PCB itself was simply wedged into four pegs on the corners. I pried it up with a tiny screwdriver and only managed to break two of the pegs—sweet!
 
-{{ <figure page src="/images/hobbies/bitaxe-gamma-mods/p1.jpg" alt="Eek, it broke..." caption="The left pegs broke off. I would take another non-blurry photo, but I might break the last two pegs. ;)" width={480} /> }}
+{{ <figure page src="/images/hobbies/bitaxe-gamma-mods/p1.jpg" alt="Eek, it broke..." caption="The left pegs broke off. I'd take another non-blurry photo, but I might break the last two pegs. ;)" width={480} /> }}
 
 Once that disaster was over, I could finally access the back of the board to remove the stock heatsink and clean off that chip. ChatGPT said it would be small—I usually work on CPUs—so this was smaller than usual. The paste looked like cheap glue that had been blobbed on. I swiftly cleaned it off with some 99% isopropyl.
 
