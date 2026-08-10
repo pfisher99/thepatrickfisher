@@ -22,7 +22,7 @@
 {% if latest_posts | length > 0 %}
   <section class="card" aria-labelledby="latest">
     <div class="card-inner prose">
-      <h2 id="latest" style="margin-top:0;">The Absolute Latest Posts</h2>
+      <h1 id="latest" class="section-title">The Absolute Latest Posts</h1>
 
       <ul style="list-style:none; padding:0; margin:0; display:grid; gap:12px;">
         {% for p in latest_posts %}
@@ -84,9 +84,9 @@
   <div class="card-inner">
     {% set build_date = get_env(name="BUILD_DATE", default="") %}
 
-    <h1 id="title" class="caret">
+    <h2 id="title" class="caret display-title">
       <span class="glitch glow" data-text="Patrick Fisher">Patrick Fisher</span>.
-    </h1>
+    </h2>
 
     <ul class="chips" aria-label="Focus areas">
       <li class="chip">SRE</li>

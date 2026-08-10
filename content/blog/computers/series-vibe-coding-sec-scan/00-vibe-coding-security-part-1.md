@@ -109,7 +109,7 @@ exec vllm serve "$MODEL_DIR" "${ARGS[@]}"
 ```
 {% end %}
 
-#### Quick Notes
+### Quick Notes
 I added an extra jinja script in there you might have noticed, actually you didn't because you didn't read the entire script but it's [here](https://huggingface.co/froggeric/Qwen3.5-35B-A3B-Uncensored-FernflowerAI-MLX-8bit/blob/main/chat_template.jinja) and some notes on it [here](https://www.reddit.com/r/LocalLLaMA/comments/1sis1vn/the_definitive_qwen_35_jinja_template/)
 
 You can play with the setting for GPU_MEM_UTIL, my laptop won't go over 0.92 even though I have 100% free GPU memory as my integrated graphics handles the Windows load... 
