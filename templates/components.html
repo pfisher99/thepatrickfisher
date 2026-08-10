@@ -61,8 +61,8 @@
   <a class="post-figure-link" href="{{ url | safe }}" aria-label="Open image at full size">
     <img class="post-figure-image" src="{{ url | safe }}" alt="{{ alt }}" loading="lazy" decoding="async">
   </a>
-  {% if caption != "" %}
-    <figcaption class="post-figure-caption">{{ caption }}</figcaption>
-  {% endif %}
+{% if caption != "" -%}
+<figcaption class="post-figure-caption">{{ caption }}</figcaption>
+{%- endif %}
 </figure>
 {% endcomponent figure %}
