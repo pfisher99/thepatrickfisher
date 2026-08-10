@@ -590,6 +590,39 @@ p{
 /* =========================
    “Nice blog defaults”
 ========================= */
+.breadcrumbs{
+  margin: 0 0 16px;
+  color: var(--dim);
+  font-size: 13px;
+}
+
+.breadcrumbs ol{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs li{
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.breadcrumbs li + li::before{
+  content: "›";
+  margin-right: 6px;
+  color: rgba(255,255,255,.22);
+}
+
+.breadcrumbs [aria-current="page"]{
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
 .prose a{
   color: var(--green);
   text-decoration: none;
